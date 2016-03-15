@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>formular</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+	<div class="form">
+		<form id="nume">
+			<label for="field"> name </label>
+			<input type="text" id="field" name="field">
+			<br/>
+		</form>
+		<form id="email">
+			<label for="field"> email </label>
+			<input type="text" id="field" name="field">
+			<br/>
+		</form>
+		<form id="subject">
+			<label for="field" id="box"> subject </label>
+			<input type="text" id="field" name="field">
+			<br/>
+		</form>
+		
+		<textarea id="text" name="texted" maxlength="200"></textarea>
+		<br/>
+		<input  id="btn" type="submit" value="Send">
+	</div>
+		
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+		<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+		<script>
+
+jQuery.validator.setDefaults({
+	debug: true,
+	success: "valid"
+});
+$( "#nume" ).validate({
+	rules: {
+		field: {
+			required: true,
+			minlength: 3
+		}
+	}
+});
+$( "#email" ).validate({
+	rules: {
+		field: {
+			required: true,
+			email:true
+		}
+	}
+});
+$( "#subject" ).validate({
+	rules: {
+		field: {
+			required: true,
+			minlength: 10
+		}
+	}
+});
+$( "#text" ).validate({
+	rules: {
+		texted:{
+			required: true,
+			minlength: 10
+		}
+	}
+});
+$('#btn').on('click', function() {
+    $("#nume").valid();
+    $("#email").valid();
+    $("#subject").valid();
+    $("#text").valid();
+});
+</script>
+</body>
+</html>

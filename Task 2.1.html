@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var s = 'stringy'; 
+
+function reverse(s){
+    s=s.toUpperCase();
+    return s.split("").reverse();
+}
+function myFunction() {
+
+    document.getElementById("demo").innerHTML =reverse(s);
+}
+console.log( '['+reverse(s)+']');
+</script>
+</head>
+
+<body>
+
+<p id="demo"></p>
+
+<button onclick="myFunction()">reverse</button>
+
+
+
+</body>
+</html>
